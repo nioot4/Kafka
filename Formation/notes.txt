@@ -1,0 +1,25 @@
+
+Sebastien COULLE
+
+https://training.confluent.io/
+https://training.confluent.io/learningpath/7648
+
+3B05-1792-9C07-4298
+
+
+./gradlew build
+./gradlew run
+
+akhq.io
+
+\\wsl$\Ubuntu-22.04\home\user0\confluent-dev\challenge
+
+docker exec -it ksqldb-server
+
+docker exec -it kafka
+
+
+Class Id: 10399
+
+
+developper.confluent.io/tutorials/...
