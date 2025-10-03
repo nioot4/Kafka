@@ -1,0 +1,111 @@
+
+
+--------------------------------------------------------------------------------------------------------------
+HOW TO START ZOOKEEPER 
+
+UBUNTU user0@LAPTOP337
+
+user0@LAPTOP337:~$ pwd
+/home/user0
+user0@LAPTOP337:~$ cd confluent-7.3.0/
+user0@LAPTOP337:~/confluent-7.3.0$ ./bin/zookeeper-server-start ./etc/kafka/zookeeper.properties
+
+--------------------------------------------------------------------------------------------------------------
+HOW TO START KAFKA 
+
+UBUNTU user0@LAPTOP337
+
+user0@LAPTOP337:~$ pwd
+/home/user0
+user0@LAPTOP337:~$ cd confluent-7.3.0/
+user0@LAPTOP337:~/confluent-7.3.0$ ./bin/kafka-server-start ./etc/kafka/server.properties
+
+--------------------------------------------------------------------------------------------------------------
+HOW TO DISPLAY TOPICS 
+
+UBUNTU user0@LAPTOP337
+
+user0@LAPTOP337:~$ pwd
+/home/user0
+user0@LAPTOP337:~$ cd confluent-7.3.0/
+user0@LAPTOP337:~/confluent-7.3.0$ ./bin/kafka-topics --bootstrap-server=localhost:9092 --list
+__consumer_offsets
+_schemas
+
+
+optadmin@appkafkadev1:~$ kafka-topics --bootstrap-server appkafkadev1:9092,appkafkadev2:9092,appkafkadev3:9092 --list
+
+
+--------------------------------------------------------------------------------------------------------------
+HOW TO CREATE TOPIC 
+
+UBUNTU user0@LAPTOP337
+
+user0@LAPTOP337:~$ pwd
+/home/user0
+user0@LAPTOP337:~$ cd confluent-7.3.0/
+user0@LAPTOP337:~/confluent-7.3.0$ ./bin/kafka-topics --create --bootstrap-server=localhost:9092 --partitions 6 --topic ahc_test
+WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+Created topic ahc_test.
+
+
+
+
+--------------------------------------------------------------------------------------------------------------
+HOW TO VIEW TOPIC 
+
+optadmin@appkafkadev1:~$ kafka-console-consumer --bootstrap-server appkafkadev1:9092,appkafkadev2:9092,appkafkadev3:9092 --topic comet_push_int --from-beginning
+
+optadmin@appkafkaprod1:~$ kafka-console-consumer --bootstrap-server appkafkaprod1:9092,appkafkaprod2:9092,appkafkaprod3:9092 --topic comet_push --from-beginning
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------
+REDPANDA CONSOLE (Kowl)
+
+user0@LAPTOP337:~$ curl -1sLf 'https://dl.redpanda.com/nzc4ZYQK3WRGd9sy/redpanda/cfg/setup/bash.deb.sh' | sudo -E bash
+[sudo] password for user0:
+Executing the  setup script for the 'redpanda/redpanda' repository ...
+
+   OK: Checking for required executable 'curl' ...
+   OK: Checking for required executable 'apt-get' ...
+   OK: Detecting your OS distribution and release using system methods ...
+ ^^^^: ... Detected/provided for your OS/distribution, version and architecture:
+ >>>>:
+ >>>>: ... distro=ubuntu  version=22.04  codename=jammy  arch=x86_64
+ >>>>:
+ NOPE: Checking for apt dependency 'apt-transport-https' ...
+   OK: Updating apt repository metadata cache ...
+   OK: Attempting to install 'apt-transport-https' ...
+   OK: Checking for apt dependency 'ca-certificates' ...
+   OK: Checking for apt dependency 'gnupg' ...
+   OK: Checking for apt signed-by key support ...
+   OK: Importing 'redpanda/redpanda' repository GPG key ...
+   OK: Checking if upstream install config is OK ...
+   OK: Installing 'redpanda/redpanda' repository via apt ...
+   OK: Updating apt repository metadata cache ...
+   OK: The repository has been installed successfully - You're ready to rock!
+
+user0@LAPTOP337:~$ sudo apt-get install redpanda-console
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  redpanda-console
+0 upgraded, 1 newly installed, 0 to remove and 9 not upgraded.
+Need to get 35.3 MB of archives.
+After this operation, 130 MB of additional disk space will be used.
+Get:1 https://dl.redpanda.com/nzc4ZYQK3WRGd9sy/redpanda/deb/ubuntu jammy/main amd64 redpanda-console amd64 2.1.1 [35.3 MB]
+Fetched 35.3 MB in 2s (18.9 MB/s)
+Selecting previously unselected package redpanda-console.
+(Reading database ... 40550 files and directories currently installed.)
+Preparing to unpack .../redpanda-console_2.1.1_amd64.deb ...
+Unpacking redpanda-console (2.1.1) ...
+Setting up redpanda-console (2.1.1) ...
+
+Redpanda Console is installed succesfully. To start Console, run the
+following:
+
+    sudo systemctl start redpanda-console

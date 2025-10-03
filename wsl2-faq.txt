@@ -1,0 +1,14 @@
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+How do I copy files from WSL to Windows?
+
+
+
+1. Within the WSL terminal command prompt, navigate to the folder of choice.
+2. Within that folder, type and ENTER: explorer.exe . (Don’t forget the dot which indicates current folder)
+3. Windows will open a Windows Explorer window for the precise location that you ran the above command, where you can drag-and-drop to-from.
